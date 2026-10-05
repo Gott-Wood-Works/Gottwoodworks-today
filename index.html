@@ -65,20 +65,13 @@ Gott Wood Works
 
 </div>
 
+<script src="facts.js"></script>
+
 <script>
-
-const facts = {
-"1-1": "Happy New Year! A new year means another 365 days of history to discover.",
-"7-20": "On July 20, 1969, Apollo 11 astronauts Neil Armstrong and Buzz Aldrin landed on the Moon.",
-"10-5": "Welcome to Gott Wood Works Today in History!",
-"12-25": "Merry Christmas from Gott Wood Works!"
-};
-
 const today = new Date();
 
 const month = today.getMonth() + 1;
 const day = today.getDate();
-
 const key = month + "-" + day;
 
 const dateText = today.toLocaleDateString("en-US", {
@@ -88,17 +81,24 @@ day: "numeric"
 
 document.getElementById("date").innerText = dateText;
 
+const todayFact = facts[key];
+
+if (todayFact) {
+document.getElementById("fact").innerHTML =
+"<strong>" + todayFact.year + "</strong><br><br>" +
+todayFact.fact;
+} else {
 document.getElementById("fact").innerText =
-facts[key] || "Come back tomorrow for another interesting moment in history!";
-
-<script src="facts.js"></script>
-
-<script>
-// daily fact code goes here
+"Today's historical fact is unavailable.";
+}
 </script>
 
 </body>
 </html>
+``
+
+
+
 
 
 
