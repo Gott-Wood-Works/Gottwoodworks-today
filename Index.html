@@ -1,1 +1,98 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Today in History | Gott Wood Works</title>
+
+<style>
+body {
+font-family: Georgia, serif;
+background: #f2eee5;
+color: #2d241c;
+text-align: center;
+margin: 0;
+padding: 30px 20px;
+}
+
+.card {
+max-width: 600px;
+margin: auto;
+background: #fffdf8;
+padding: 35px;
+border-radius: 15px;
+box-shadow: 0 4px 15px rgba(0,0,0,.15);
+}
+
+h1 {
+color: #704214;
+}
+
+#date {
+font-size: 22px;
+font-weight: bold;
+}
+
+#fact {
+font-size: 20px;
+line-height: 1.6;
+margin-top: 25px;
+}
+
+.logo {
+margin-top: 35px;
+font-size: 16px;
+font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<h1>Today in History</h1>
+
+<div id="date"></div>
+
+<div id="fact"></div>
+
+<div class="logo">
+Gott Wood Works
+</div>
+
+</div>
+
+<script>
+
+const facts = {
+"1-1": "Happy New Year! A new year means another 365 days of history to discover.",
+"7-20": "On July 20, 1969, Apollo 11 astronauts Neil Armstrong and Buzz Aldrin landed on the Moon.",
+"10-5": "Welcome to Gott Wood Works Today in History!",
+"12-25": "Merry Christmas from Gott Wood Works!"
+};
+
+const today = new Date();
+
+const month = today.getMonth() + 1;
+const day = today.getDate();
+
+const key = month + "-" + day;
+
+const dateText = today.toLocaleDateString("en-US", {
+month: "long",
+day: "numeric"
+});
+
+document.getElementById("date").innerText = dateText;
+
+document.getElementById("fact").innerText =
+facts[key] || "Come back tomorrow for another interesting moment in history!";
+
+</script>
+
+</body>
+</html>
+
